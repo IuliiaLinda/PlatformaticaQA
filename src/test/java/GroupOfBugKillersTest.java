@@ -40,7 +40,7 @@ public class GroupOfBugKillersTest extends BaseTest {
         Assert.assertEquals(name.getText(), "О нас");
         name.click();
 
-        Assert.assertEquals(browser.getCurrentUrl(),"https://coderoad.ru/about.html");
+        Assert.assertEquals(browser.getCurrentUrl(), "https://coderoad.ru/about.html");
     }
 
     @Test
@@ -69,5 +69,83 @@ public class GroupOfBugKillersTest extends BaseTest {
 
         Assert.assertEquals(phone_field.getText(), "ENTER PHONE");
         Assert.assertEquals(password_field.getText(), "ENTER PASSWORD");
+    }
+
+    @Test
+    public void panteleyeva01() {
+
+        WebDriver browser = getDriver();
+        browser.get("https://www.colibribookstore.com/");
+        WebElement webLabelName = browser.findElement(By.xpath("//img[@class='large']"));
+        Assert.assertTrue(webLabelName.isDisplayed());
+    }
+
+    @Test
+    public void viewHistoryWikipedia() {
+
+        WebDriver browser = getDriver();
+        browser.get("https://en.wikipedia.org/wiki/Main_Page");
+        WebElement name = browser.findElement(By.id("ca-history"));
+
+        Assert.assertEquals(name.getText(), "View history");
+    }
+
+    @Test
+    public void clickBtnViewHistoryWikipedia() {
+
+        WebDriver browser = getDriver();
+        browser.get("https://en.wikipedia.org/wiki/Main_Page");
+        WebElement name = browser.findElement(By.xpath("//*[@id='ca-history']/a"));
+        name.click();
+        WebElement firstHeading = browser.findElement(By.xpath("//*[@id='firstHeading']"));
+
+        Assert.assertEquals(firstHeading.getText(), "Main Page: Revision history");
+    }
+
+    @Test
+    public void svetlanaGusachenkoTest() {
+
+        WebDriver driver = getDriver();
+        driver.get("https://en.wikipedia.org/wiki/Main_Page");
+
+        WebElement link = driver.findElement(By.id("n-portal"));
+        Assert.assertEquals(link.getText(), "Community portal");
+
+        link.click();
+        WebElement name = driver.findElement(By.xpath("//*[@id=\"Welcome_to_the_Community_portal!\"]"));
+        Assert.assertEquals(name.getText(), "Welcome to the Community portal!");
+    }
+
+    @Test
+    public void svetlanaGusachenkoTest1() {
+
+        WebDriver driver = getDriver();
+        driver.get("https://www.hccts.org/");
+
+        WebElement link = driver.findElement(By.xpath("//span[contains(text(),'Register')]"));
+        Assert.assertEquals(link.getText(), "Register Now!");
+    }
+
+    @Test
+    public void denTest() throws InterruptedException {
+
+        WebDriver driver = getDriver();
+        driver.get("https://www.udemy.com/");
+        Thread.sleep(1000);
+
+        WebElement search = driver.findElement(By.xpath("//input[@placeholder='Search for anything']"));
+        search.sendKeys("Java");
+
+        WebElement text = driver.findElement(By.xpath("//label[contains(text(), 'Search')]"));
+        Assert.assertEquals(text.getText(), "Search for anything");
+        Assert.assertEquals("Online Courses - Learn Anything, On Your Schedule | Udemy", driver.getTitle());
+
+        WebElement submit = driver.findElement(By
+                .xpath("//input[@placeholder='Search for anything']/../button[@type='submit']"));
+        submit.click();
+        Thread.sleep(1000);
+
+        WebElement textResult = driver.findElement(By.xpath("//h1[contains(text(), '10,000 results for “java”')]"));
+        Assert.assertEquals(textResult.getText(), "10,000 results for “java”");
     }
 }
