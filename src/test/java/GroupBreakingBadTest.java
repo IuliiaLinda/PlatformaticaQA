@@ -36,11 +36,11 @@ public class GroupBreakingBadTest extends BaseTest {
         browser.get("https://www.jizo.com");
 
         WebElement inputSearch = browser.findElement(By.xpath("//input[@id='searchCity']"));
-        inputSearch.sendKeys("Rus");
+        inputSearch.sendKeys("Chi");
         Thread.sleep(3000);
 
         WebElement menuElement = browser.findElement(By.xpath("//*[@id='CityList']/div[1]/div[2]/h4"));
-        assertEquals(menuElement.getText().toLowerCase(), "russia");
+        assertEquals(menuElement.getText(), "CHINA");
     }
 
     @Test
