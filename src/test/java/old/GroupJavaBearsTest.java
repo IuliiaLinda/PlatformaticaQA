@@ -1,5 +1,3 @@
-package old;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +10,6 @@ import runner.BaseTest;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-@Ignore
 public class GroupJavaBearsTest extends BaseTest {
 
     @Test
@@ -138,7 +135,7 @@ public class GroupJavaBearsTest extends BaseTest {
         Thread.sleep(3000);
         Assert.assertEquals(button.getText(), "Read");
     }
-    
+
     @Test
     public void farizA() {
         WebDriver driver = getDriver();
@@ -150,4 +147,16 @@ public class GroupJavaBearsTest extends BaseTest {
 
         Assert.assertTrue(driver.findElement(By.xpath("(//span[@aria-label='warning'])[1]")).isDisplayed());
     }
+
+    @Test
+    public void alexanderDemidionok(){
+
+        WebDriver driver = getDriver();
+        driver.get("https://github.com/assemblyad");
+
+        WebElement homePage = driver.findElement(By.xpath("//a[@href='https://github.com/']"));
+        homePage.click();
+        Assert.assertEquals(getDriver().getCurrentUrl(),"https://github.com/");
+    }
+
 }
