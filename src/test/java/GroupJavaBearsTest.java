@@ -127,25 +127,24 @@ public class GroupJavaBearsTest extends BaseTest {
     }
 
     @Test
-    public void olgaV1() {
-
+    public void bogdanQA() throws InterruptedException {
         WebDriver browser = getDriver();
-        browser.get("https://www.guru99.com/introduction-to-selenium.html");
+        browser.get("https://en.wikipedia.org/wiki/Main_Page");
 
-        WebElement seleniumLink2 = browser.findElement(By.xpath("//a[contains(text(),'Birth of Selenium 2')]"));
-        seleniumLink2.click();
-
-        Assert.assertEquals(browser.getCurrentUrl(), "https://www.guru99.com/introduction-to-selenium.html#8");
+        WebElement button = browser.findElement(By.xpath("//li[@id='ca-view']/a[contains(text(),'Read')]"));
+        Thread.sleep(3000);
+        Assert.assertEquals(button.getText(), "Read");
     }
-
+    
     @Test
-    public void olgaV2() {
+    public void farizA() {
+        WebDriver driver = getDriver();
+        driver.get("https://id.atlassian.com/signup?application=bitbucket&continue=https%3A//" +
+                "bitbucket.org/account/signin/%3Foptintocst%3D1%26next%3D/%3Faidsignup%3D1");
 
-        WebDriver browser = getDriver();
-        browser.get("https://www.recreation.gov/");
+        WebElement signUpButton = driver.findElement(By.xpath("//button[@id='signup-submit']"));
+        signUpButton.click();
 
-        browser.findElement(By.xpath("//div[@class='nav-links-wrap']/a[1]")).click();
-        Assert.assertEquals(browser.getCurrentUrl(), "https://www.recreation.gov/whats-new");
+        Assert.assertTrue(driver.findElement(By.xpath("(//span[@aria-label='warning'])[1]")).isDisplayed());
     }
-
 }
