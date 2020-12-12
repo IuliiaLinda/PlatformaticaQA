@@ -1,3 +1,5 @@
+package old;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,7 @@ import runner.BaseTest;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+@Ignore
 public class GroupJavaBearsTest extends BaseTest {
 
     @Test
@@ -139,6 +142,7 @@ public class GroupJavaBearsTest extends BaseTest {
         Assert.assertEquals(browser.getCurrentUrl(), "https://www.guru99.com/introduction-to-selenium.html#8");
     }
 
+    @Ignore
     @Test
     public void olgaV2() {
 
@@ -147,6 +151,16 @@ public class GroupJavaBearsTest extends BaseTest {
 
         browser.findElement(By.xpath("//div[@class='nav-links-wrap']/a[1]")).click();
         Assert.assertEquals(browser.getCurrentUrl(), "https://www.recreation.gov/whats-new");
+    }
+
+    @Test
+    public void bogdanQA() throws InterruptedException {
+        WebDriver browser = getDriver();
+        browser.get("https://en.wikipedia.org/wiki/Main_Page");
+
+        WebElement button = browser.findElement(By.xpath("//li[@id='ca-view']/a[contains(text(),'Read')]"));
+        Thread.sleep(3000);
+        Assert.assertEquals(button.getText(), "Read");
     }
 
     @Test
