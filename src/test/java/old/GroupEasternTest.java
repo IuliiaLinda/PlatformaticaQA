@@ -29,7 +29,6 @@ public class GroupEasternTest extends BaseTest {
     public void irinaKa() throws InterruptedException {
         WebDriver driver = getDriver();
         driver.get("https://www.underarmour.com/en-us/");
-
         WebElement button = driver.findElement(By.xpath("//a[@id='footwear']"));
         Assert.assertEquals(button.getText(), "Shoes");
     }
