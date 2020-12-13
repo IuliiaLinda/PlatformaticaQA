@@ -1,16 +1,19 @@
 import java.util.List;
+import java.util.UUID;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import runner.BaseTest;
 
 public class EntityFieldsTest extends BaseTest {
 
+    @Ignore
     @Test
     public void newRecord() {
 
@@ -25,7 +28,7 @@ public class EntityFieldsTest extends BaseTest {
         WebElement newRecord = driver.findElement(By.xpath("//i[text()='create_new_folder']"));
         newRecord.click();
 
-        final String title = TestUtils.getUUID();
+        final String title = UUID.randomUUID().toString();
         final String comment = "simple text";
         final int number = 10;
 
