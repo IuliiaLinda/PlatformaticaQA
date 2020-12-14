@@ -5,7 +5,7 @@ import runner.BaseTest;
 
 import java.awt.*;
 
-public class BoardEditTest extends BaseTest {
+public class EditBoardEditTest extends BaseTest {
     @Test
     public void editBoard() throws InterruptedException {
         WebDriver driver = getDriver();
