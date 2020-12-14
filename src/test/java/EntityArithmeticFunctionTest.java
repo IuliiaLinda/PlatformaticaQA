@@ -20,9 +20,9 @@ public class EntityArithmeticFunctionTest extends BaseTest {
 
     public void clickArithmeticFunction(WebDriver driver) {
 
-        WebElement tabArithmeticFunction =
+        WebElement entityArithmeticFunction =
                 driver.findElement(By.xpath("//div[@id = 'menu-list-parent']//p[text() = ' Arithmetic Function ']"));
-        tabArithmeticFunction.click();
+        entityArithmeticFunction.click();
     }
 
     public void createNewRecord(WebDriver driver) {
