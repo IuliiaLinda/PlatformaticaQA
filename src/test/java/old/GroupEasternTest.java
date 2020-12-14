@@ -25,18 +25,14 @@ public class GroupEasternTest extends BaseTest {
                 "service=1&utm_campaign=service_carousel_walking&utm_medium=homepage&utm_source=web");
     }
 
-    @Ignore
     @Test
-    public void irinaKalinichenko() throws InterruptedException {
+    public void irinaKa() throws InterruptedException {
         WebDriver driver = getDriver();
         driver.get("https://www.underarmour.com/en-us/");
-
-        WebElement text = driver.findElement(By.xpath("//span[text()='Knock out your gift list with FREE SHIPPING, orders $60+.']"));
-        text.click();
-        //  Let us help you find the perfect gift — without getting up.
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.underarmour.com/en-us/c/top-gifts/");
+        WebElement button = driver.findElement(By.xpath("//a[@id='footwear']"));
+        Assert.assertEquals(button.getText(), "Shoes");
     }
-
+    
     @Test
     public void olgaLytvynova(){
         WebDriver driver = getDriver();
