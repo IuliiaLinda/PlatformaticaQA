@@ -10,6 +10,11 @@ import runner.BaseTest;
 
 public class EntityDeafaultTest extends BaseTest {
 
+    public void theWall() {
+        System.out.println("Is there anybody out there?");
+    }
+    
+
     @Test
     public void editRecord() throws InterruptedException {
 
