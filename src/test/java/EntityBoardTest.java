@@ -34,7 +34,6 @@ public class EntityBoardTest extends BaseTest {
         driver.findElement(By.xpath("//ul[@class='pa-nav-pills-small nav nav-pills nav-pills-primary']//i[text()='dashboard']")).click();
         driver.findElement(By.xpath("//ul[@class='pa-nav-pills-small nav nav-pills nav-pills-primary']//i[text()='list']")).click();
         driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/button[1]")).click();
-        //driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/ul[1]/li[2]/a[1]")).click();
         ProjectUtils.click(driver, driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/ul[1]/li[2]/a[1]")));
         driver.findElement(By.xpath("//div[@class='filter-option-inner-inner'][text()='Pending']")).click();
         driver.findElement(By.xpath("//span[contains(text(),'On track')]")).click();
