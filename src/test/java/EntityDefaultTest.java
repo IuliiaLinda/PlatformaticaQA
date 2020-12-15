@@ -19,7 +19,6 @@ public class EntityDefaultTest extends BaseTest {
 
     WebDriverWait wait = new WebDriverWait(getDriver(), 1);
     driver.get("https://ref.eteam.work");
-
     ProjectUtils.login(driver, "user1@tester.com", "ah1QNmgkEO");
   }
 
