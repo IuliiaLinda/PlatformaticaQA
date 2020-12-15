@@ -16,12 +16,10 @@ public class EditBoardEditTest extends BaseTest {
         ProjectUtils.click(driver, board);
 
         // create new values on board and save
-
         driver.findElement(By.xpath("//i[contains(text(),'create_new_folder')]")).click();
         driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys("my test");
         driver.findElement(By.xpath("//input[@id='int']")).sendKeys(String.valueOf(20));
         driver.findElement(By.xpath("//input[@id='decimal']")).sendKeys(String.valueOf(22.5));
-
 
         /*WebElement calendar1 = driver.findElement(By.xpath("//input[@id='date']"));
         calendar1.clear();
@@ -32,25 +30,22 @@ public class EditBoardEditTest extends BaseTest {
         //driver.findElement(By.xpath("//input[@id='datetime']")).sendKeys(Keys.ESCAPE);
         //Thread.sleep(2000);
         ProjectUtils.click(driver, driver.findElement(By.xpath("//button[@id='pa-entity-form-save-btn']")));
-        //driver.findElement(By.id("pa-entity-form-save-btn")).click();
         Thread.sleep(3000);
 
-        //String boardContainer = driver.findElement(By.xpath("//div[@class='bootstrap-table bootstrap4']")).getText();
-        //assertThat(boardContainer).
+        //edit existing values
         driver.findElement(By.xpath("//ul[@class='pa-nav-pills-small nav nav-pills nav-pills-primary']//i[text()='dashboard']")).click();
         driver.findElement(By.xpath("//ul[@class='pa-nav-pills-small nav nav-pills nav-pills-primary']//i[text()='list']")).click();
-        //driver.findElement(By.xpath("//tbody/tr[4]/td[10]/div[1]/button[1]/i[1]")).click();
         driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/button[1]")).click();
         //driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/ul[1]/li[2]/a[1]")).click();
         ProjectUtils.click(driver, driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/ul[1]/li[2]/a[1]")));
         driver.findElement(By.xpath("//div[@class='filter-option-inner-inner'][text()='Pending']")).click();
         driver.findElement(By.xpath("//span[contains(text(),'On track')]")).click();
-
         WebElement text = driver.findElement(By.xpath("//textarea[@id='text']"));
         text.clear();
         driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys("my test changed");
         Thread.sleep(2000);
         ProjectUtils.click(driver, driver.findElement(By.xpath("//button[@id='pa-entity-form-save-btn']")));
+
         // validate edition
         String result = driver.findElement(By.xpath("//tbody/tr[1]/td[3]/a[1]/div[1]")).getText();
         Assert.assertEquals(result,"my test changed");
