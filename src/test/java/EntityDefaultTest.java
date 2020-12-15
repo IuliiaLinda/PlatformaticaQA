@@ -156,13 +156,11 @@ public class EntityDefaultTest extends BaseTest {
     boolean isDouble = isDouble(driver.findElement(By.xpath("//div[@id='_field_container-int']//span//input")).getAttribute("value"));
     Assert.assertTrue(isDouble);
 
-
     boolean isValidDate = isValidDateFormat(driver.findElement(By.xpath("//div[@id='_field_container-date']//input")).getAttribute("value"));
     Assert.assertTrue(isValidDate);
 
     boolean isValidDateTime = isValidDateFormat(driver.findElement(By.xpath("//div[@id='_field_container-datetime']//input")).getAttribute("value"));
     Assert.assertTrue(isValidDateTime);
-
 
     String userName= driver.findElement(By.xpath("//button[@data-id='user']")).getAttribute("title").toUpperCase();
     String userNameExpected= driver.findElement(By.xpath("//button[@data-id='user']//div//div//div[@class='filter-option-inner-inner']")).getText().toUpperCase();
@@ -175,7 +173,6 @@ public class EntityDefaultTest extends BaseTest {
 
     driver.findElement(By.xpath("//table[@id='table-11']//button[@data-table_id='11']")).click();
 
-
     Assert.assertEquals(driver.findElement(By.xpath("//table[@id='table-11']//tbody//tr[2]//td[3]")).getText()
             ,"Default String");
 
@@ -183,7 +180,6 @@ public class EntityDefaultTest extends BaseTest {
             ,"Default text");
 
     Assert.assertTrue(isInt(driver.findElement(By.xpath("//table[@id='table-11']//tbody//tr[2]//td[5]")).getText()));
-
 
     Assert.assertTrue(isDouble(driver.findElement(By.xpath("//table[@id='table-11']//tbody//tr[2]//td[6]")).getText()));
 
@@ -213,21 +209,17 @@ public class EntityDefaultTest extends BaseTest {
    boolean isDouble = isDouble(objectValidation.get(3).getText());
    Assert.assertTrue(isDouble);
 
-
    boolean isValidDate = isValidDateFormat(objectValidation.get(3).getText());
    Assert.assertTrue(isValidDate);
 
    boolean isValidDateTime = isValidDateFormat(objectValidation.get(5).getText());
    Assert.assertTrue(isValidDateTime);
 
-
    String userName= "User 1 Demo".toUpperCase();
    String userNameExpected= driver.findElement(By.xpath("//label[text()='User']/following-sibling::p")).getText().toUpperCase();
    Assert.assertEquals(userName,userNameExpected);
 
-
    List<WebElement> allCells = driver.findElements(By.xpath("//table[@id='pa-all-entities-table']//tr//td"));
-
 
    Assert.assertEquals(allCells.get(1).getText()
            ,"Default String");
