@@ -52,13 +52,13 @@ public class EntityExportTest extends BaseTest {
         actions1.moveToElement(datetimeElement).build().perform();
         datetimeElement.click();
 
-        WebElement saveButton = driver.findElement(By.xpath("//button[@id= 'pa-entity-form-save-btn']"));
+        WebElement saveButton = driver.findElement(By.xpath("//button[@value='1']"));
         saveButton.click();
         WebElement actionsButton = driver.findElement(By.xpath("//tbody/tr[2]/td[10]/div[1]/button[1]"));
         actionsButton.click();
         WebElement someLabelButton = driver.findElement(By.xpath("//tbody/tr[last()]//a[contains(text(), 'Some label')]"));
         ProjectUtils.click(driver, someLabelButton);
-        WebElement save1Button = driver.findElement(By.xpath("//button[@id= 'pa-entity-form-save-btn']"));
+        WebElement save1Button = driver.findElement(By.xpath("//button[@value='1']"));
         save1Button.click();
 
         //verify Entity:View tickets
