@@ -9,14 +9,11 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import runner.BaseTest;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
-@Ignore
 public class GroupJavaBearsTest extends BaseTest {
 
+    @Ignore
     @Test
-    public void victoriaRogozhkina() {
+    public void victoriaRogozhkina() throws InterruptedException {
 
         WebDriver driver = getDriver();
         driver.get("https://developer.mozilla.org/en-US/docs/Web/XPath/Functions");
@@ -28,7 +25,7 @@ public class GroupJavaBearsTest extends BaseTest {
     }
 
     @Test
-    public void Alex_Mack() throws InterruptedException {
+    public void Alex_Mack() {
 
         WebDriver driver = getDriver();
         driver.get("https://en.wikipedia.org/wiki/Golden_Gate");
@@ -61,7 +58,7 @@ public class GroupJavaBearsTest extends BaseTest {
     }
 
     @Test
-    public void olgaGTest1() {
+    public void olgaGTest1() throws InterruptedException {
 
         WebDriver browser = getDriver();
         browser.get("https://korrespondent.net/");
@@ -72,7 +69,7 @@ public class GroupJavaBearsTest extends BaseTest {
 
     @Ignore
     @Test
-    public void olgaGTest2() {
+    public void olgaGTest2() throws InterruptedException {
 
         WebDriver browser = getDriver();
         browser.get("https://korrespondent.net/");
@@ -86,7 +83,7 @@ public class GroupJavaBearsTest extends BaseTest {
     }
 
     @Test
-    public void olgaGTest3() {
+    public void olgaGTest3() throws InterruptedException {
 
         WebDriver browser = getDriver();
         browser.get("https://korrespondent.net/");
@@ -101,7 +98,7 @@ public class GroupJavaBearsTest extends BaseTest {
 
     @Ignore
     @Test
-    public void igorTest1() {
+    public void igorTest1() throws InterruptedException{
 
         WebDriver browser = getDriver();
         browser.get("https://us.pandora.net/");
@@ -151,6 +148,17 @@ public class GroupJavaBearsTest extends BaseTest {
 
         browser.findElement(By.xpath("//div[@class='nav-links-wrap']/a[1]")).click();
         Assert.assertEquals(browser.getCurrentUrl(), "https://www.recreation.gov/whats-new");
+    }
+
+    @Test
+    public void alexanderDemidionok(){
+
+        WebDriver driver = getDriver();
+        driver.get("https://github.com/assemblyad");
+
+        WebElement homePage = driver.findElement(By.xpath("//a[@href='https://github.com/']"));
+        homePage.click();
+        Assert.assertEquals(getDriver().getCurrentUrl(),"https://github.com/");
     }
 
     @Test

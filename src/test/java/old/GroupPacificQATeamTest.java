@@ -253,5 +253,51 @@ public class GroupPacificQATeamTest extends BaseTest {
 
         Assert.assertEquals(name.getText(), "Star");
     }
+
+    @Test
+    public void lenaGrinenTest() {
+
+        WebDriver browser = getDriver();
+        browser.get("https://github.com/SergeiDemyanenko/PlatformaticaQA");
+
+        WebElement elementCode = browser.findElement(By.xpath("//span[contains(text(),'Code')]"));
+        WebElement elementIssues = browser.findElement(By.xpath("//span[contains(text(),'Issues')]"));
+        WebElement elementPR = browser.findElement(By.xpath("//span[contains(text(),'Pull requests')]"));
+        WebElement elementWatch = browser.findElement(By.xpath("//body/div[4]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1]/a[1]"));
+        WebElement elementStar = browser.findElement(By.xpath("//span[contains(text(),'Star')]"));
+        WebElement elementFork = browser.findElement(By.xpath("//body/div[4]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[3]/a[1]"));
+
+        Assert.assertEquals(elementCode.getText(), "Code");
+        Assert.assertEquals(elementIssues.getText(), "Issues");
+        Assert.assertTrue(elementPR.getText().contains("Pull requests"));
+        Assert.assertEquals(elementWatch.getText(), "Watch");
+        Assert.assertEquals(elementStar.getText(), "Star");
+        Assert.assertTrue(elementFork.getText().contains("Fork"));
+
+    }
+
+    @Test
+    public void vaheTest(){
+
+        WebDriver driver = getDriver();
+
+        driver.get("https://github.com/SergeiDemyanenko/PlatformaticaQA");
+        WebElement elementCode = driver.findElement(By.xpath("//li[@class = 'd-flex']/a[@href = '/SergeiDemyanenko/PlatformaticaQA']"));
+        WebElement elementIssues = driver.findElement(By.xpath("//li[@class = 'd-flex']/a[@href = '/SergeiDemyanenko/PlatformaticaQA/issues']"));
+        WebElement elementPR = driver.findElement(By.xpath("//li[@class = 'd-flex']/a[@href = '/SergeiDemyanenko/PlatformaticaQA/pulls']"));
+
+        WebElement elementWatch = driver.findElement(By.xpath("(//li/a[@href = '/login?return_to=%2FSergeiDemyanenko%2FPlatformaticaQA'])[1]"));
+        WebElement elementStar = driver.findElement(By.xpath("(//li/a[@href = '/login?return_to=%2FSergeiDemyanenko%2FPlatformaticaQA'])[2]"));
+        WebElement elementFork = driver.findElement(By.xpath("(//li/a[@href = '/login?return_to=%2FSergeiDemyanenko%2FPlatformaticaQA'])[3]"));
+
+        Assert.assertEquals(elementCode.getText(), "Code");
+        Assert.assertEquals(elementIssues.getText(), "Issues");
+        Assert.assertTrue(elementPR.getText().contains("Pull requests"));
+
+        Assert.assertEquals(elementWatch.getText(), "Watch");
+        Assert.assertEquals(elementStar.getText(), "Star");
+        Assert.assertEquals(elementFork.getText(), "Fork");
+
+    }
 }
 
