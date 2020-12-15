@@ -15,9 +15,7 @@ import java.util.List;
 
 public class EntityDefaultTest extends BaseTest {
 
-  //private WebDriver driver = getDriver(); //question here
-
-  private void login(WebDriver driver){
+   private void login(WebDriver driver){
 
     WebDriverWait wait = new WebDriverWait(getDriver(), 1);
     driver.get("https://ref.eteam.work");
