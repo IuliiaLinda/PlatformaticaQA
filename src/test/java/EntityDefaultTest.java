@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class EntitiesTest extends BaseTest {
+public class EntityDefaultTest extends BaseTest {
 
   //private WebDriver driver = getDriver(); //question here
 
