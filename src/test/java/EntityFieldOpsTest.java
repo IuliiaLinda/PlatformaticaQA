@@ -1,13 +1,18 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import runner.BaseTest;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import runner.BaseTest;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
-import org.testng.Assert;
 
 
 public class EntityFieldOpsTest extends BaseTest {
@@ -162,8 +167,14 @@ public class EntityFieldOpsTest extends BaseTest {
     }
 
     public void goPageByName(String name) {
-        By entityIcon = By.xpath(String.format("//p[contains(text(), ' %s ')]/..", name));
-        getDriver().findElement(entityIcon).click();
+        WebElement iconElement = getDriver().findElement(By.xpath(String.format("//p[contains(text(), ' %s ')]/..", name)));
+
+        if (!iconElement.isDisplayed()) {
+            Actions action = new Actions(getDriver());
+            action.moveToElement(iconElement);
+            action.perform();
+        }
+        iconElement.click();
     }
 
     private int getNumberOfRecords() {
@@ -195,5 +206,4 @@ public class EntityFieldOpsTest extends BaseTest {
         driver.findElement(recordMenuButton).click();
         ProjectUtils.click(driver, getWait(2).until(ExpectedConditions.elementToBeClickable(deleteButton)));
     }
-
 }
