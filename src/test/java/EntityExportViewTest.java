@@ -27,7 +27,7 @@ public class EntityExportViewTest extends BaseTest {
         WebElement createRecordButton = driver.findElement(By.xpath("//i[contains(text(),'create_new_folder')]"));
         createRecordButton.click();
 
-        final String title =  "TestP";
+        final String title =  "TestV";
         final String text = "New Text";
         final int number = 10;
         final double number1 = 22.22;
