@@ -5,7 +5,7 @@ import runner.BaseTest;
 
 import java.awt.*;
 
-public class EditBoardEditTest extends BaseTest {
+public class EntityBoardTest extends BaseTest {
     @Test
     public void editBoard() throws InterruptedException {
         WebDriver driver = getDriver();
@@ -27,8 +27,6 @@ public class EditBoardEditTest extends BaseTest {
         WebElement calendar2 = driver.findElement(By.xpath("//input[@id='datetime']"));
         calendar2.clear();
         driver.findElement(By.xpath("//input[@id='datetime']")).sendKeys("20/12/2020 12:40:00");*/
-        //driver.findElement(By.xpath("//input[@id='datetime']")).sendKeys(Keys.ESCAPE);
-        //Thread.sleep(2000);
         ProjectUtils.click(driver, driver.findElement(By.xpath("//button[@id='pa-entity-form-save-btn']")));
         Thread.sleep(3000);
 
@@ -49,14 +47,6 @@ public class EditBoardEditTest extends BaseTest {
         // validate edition
         String result = driver.findElement(By.xpath("//tbody/tr[1]/td[3]/a[1]/div[1]")).getText();
         Assert.assertEquals(result,"my test changed");
-
-
-
-
-
-
-
-
 
     }
 }
