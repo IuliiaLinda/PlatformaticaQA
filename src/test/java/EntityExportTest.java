@@ -11,10 +11,10 @@ import runner.BaseTest;
 
 import java.util.UUID;
 
-public class EntityExportViewTest extends BaseTest {
+public class EntityExportTest extends BaseTest {
 
     @Test
-    public void exportView () throws InterruptedException {
+    public void viewTest() throws InterruptedException {
 
         WebDriver driver = getDriver();
         driver.get("https://ref.eteam.work");
