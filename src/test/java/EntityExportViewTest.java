@@ -65,8 +65,8 @@ public class EntityExportViewTest extends BaseTest {
 
         WebElement exportDistButton = driver.findElement(By.xpath("//div[@id= 'menu-list-parent']/ul/li[9]/a"));
         ProjectUtils.click(driver, exportDistButton);
-        WebElement verifyView = driver.findElement(By.xpath("//div[contains(text(),'TestP')]"));
-        Assert.assertEquals(verifyView.getText(),"TestP");
+        WebElement verifyView = driver.findElement(By.xpath("//div[contains(text(),'TestV')]"));
+        Assert.assertEquals(verifyView.getText(),"TestV");
 
 
 
