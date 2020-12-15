@@ -39,6 +39,39 @@ public class EntityEventsChain2Test extends BaseTest {
         assertValuesPopulatedAsExpected(expectedValuesF1ToF10);
     }
 
+    @Test
+    public void replacingF1WithZeroAssertAllZero() throws InterruptedException {
+        final String url = "https://ref.eteam.work";
+        final String login = "user1@tester.com";
+        final String password = "ah1QNmgkEO";
+        final int f1Value = 0;
+        final String[] expectedValuesF1ToF10 = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
+
+        By f1 = By.cssSelector("#f1");
+        By saveButton = By.cssSelector("#pa-entity-form-save-btn");
+        By dropDownMenuView = By.cssSelector("ul.dropdown-menu.dropdown-menu-right.show>li>a[href*='view']");
+        By dropDownMenuEdit = By.cssSelector("ul.dropdown-menu.dropdown-menu-right.show>li>a[href*='edit']");
+
+        WebDriver driver = getDriver();
+        driver.get(url);
+        driver.manage().window().maximize();
+        ProjectUtils.login(driver, login, password);
+
+        clickOnDropDownMenuChoice(dropDownMenuEdit);
+        sleep();
+        driver.findElement(f1).clear();
+        driver.findElement(f1).sendKeys(String.valueOf(f1Value));
+        sleep();
+        driver.findElement(saveButton).click();
+        clickOnDropDownMenuChoice(dropDownMenuView);
+
+        assertValuesPopulatedAsExpected(expectedValuesF1ToF10);
+    }
+
+    private void sleep() throws InterruptedException {
+        Thread.sleep(2000);
+    }
+
     private void clickOnDropDownMenuChoice(By dropDownMenuChoice) {
         final String url = "https://ref.eteam.work/index.php?action=action_list&entity_id=62";
 
@@ -62,15 +95,6 @@ public class EntityEventsChain2Test extends BaseTest {
             System.out.println(actualValues.get(i).getText() + "|" + expectedValuesF1ToF10[i]);
                 Assert.assertEquals(actualValues.get(i).getText(), expectedValuesF1ToF10[i]);
         }
-
     }
-
-    private void sleep() throws InterruptedException {
-        Thread.sleep(2000);
-
-    }
-
-
-
 
 }
