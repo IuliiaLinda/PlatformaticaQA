@@ -37,7 +37,7 @@ public class EntityPlaceholderInputTest extends BaseTest {
         fieldDecimal.sendKeys(String.valueOf(0));
 
         WebElement fieldData = driver.findElement(By.id("date"));
-        fieldData.click();
+
 
         WebElement saveBtn = driver.findElement(By.id("pa-entity-form-save-btn"));
         ProjectUtils.click(driver,saveBtn);
