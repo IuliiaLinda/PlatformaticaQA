@@ -15,7 +15,6 @@ public class EntityDefaultTest extends BaseTest {
     @Test
     public void checkDefaultValueAndUpdateThem() throws InterruptedException {
 
-        //lines data, default and updated
         final String stringLineDefaultText = "DEFAULT STRING VALUE";
         final String textLineDefaultText = "DEFAULT TEXT VALUE";
         final int intLineDefault = 55;
@@ -32,7 +31,6 @@ public class EntityDefaultTest extends BaseTest {
         final String dateLineNew = "11/11/2011";
         final String dateTimeLineNew = "11/11/2011 11:11:11";
 
-        //embedD lines data, default and updated
         final String stringEmbedLineDefaultString = "Default String";
         final String textEmbedLineDefaultText = "Default text";
         final int intEmbedLineDefault = 77;
@@ -90,7 +88,6 @@ public class EntityDefaultTest extends BaseTest {
         System.out.println("User text:" + user.getText());
         Assert.assertTrue(user.getText().equals(userDefault.toUpperCase()));
 
-        //replacing default data with new data
         stringLineDefaultData.clear();
         stringLineDefaultData.sendKeys(stringLineNewText);
         textLineDefaultData.clear();
@@ -104,11 +101,6 @@ public class EntityDefaultTest extends BaseTest {
         dateTimeLineDefaultData.clear();
         dateTimeLineDefaultData.sendKeys(dateTimeLineNew);
 
-        //upload file and pics test passes on my local PC, I commented it cause I don't think it will pass on other PCs
-        //driver.findElement(By.id("file")).sendKeys("C:\\Users\\Galina\\Desktop\\IMG_8992.JPG");
-        //WebElement uploadPicture = driver.findElement(By.xpath("//input[@id='file_image']"));
-        //uploadPicture.sendKeys("C:\\Users\\Galina\\Desktop\\IMG_8992.JPG");
-
         WebElement dropdownUsers = driver.findElement(By.xpath("//button[@data-id='user']"));
         dropdownUsers.click();
 
@@ -116,7 +108,7 @@ public class EntityDefaultTest extends BaseTest {
         WebElement listOfUsers = driver.findElement(By.xpath("//span[.='User 4']/ancestor::a"));
         listOfUsers.click();
 
-        //EmbedD default values check
+        Thread.sleep(1000);
         WebElement greenPlus = driver.findElement(By.xpath("//button[@data-table_id='11']"));
         greenPlus.click();
 
@@ -144,7 +136,6 @@ public class EntityDefaultTest extends BaseTest {
         WebElement embedDUser = driver.findElement(By.xpath("//select[@id='t-11-r-1-user']/option[@value='0']"));
         Assert.assertEquals(embedDUser.getText(), userEmbedNotSelected);
 
-        //embedD values change
         embedDString.clear();
         embedDString.sendKeys(stringEmbedLineNewText);
 
@@ -181,16 +172,6 @@ public class EntityDefaultTest extends BaseTest {
         ourRecord.click();
         Thread.sleep(500);
 
-//        Ask proficient users why its not working
-//        String[] textArray = {stringLineNewText, textLineNewText, intLineNew +"", decimalLineNew +"", dateLineNew, dateTimeLineNew};
-//        List<WebElement> myList = driver.findElements(By.className("pa-view-field"));
-//        List<String> allElementsText = new ArrayList<>();
-//        for (int i = 0; i < myList.size(); i++) {
-//            allElementsText.add(myList.get(i).getText());
-//            System.out.println(myList.get(i).getText());
-//            Assert.assertEquals(allElementsText, textArray);
-
-        //check all lines new values
         List<WebElement> listOfNewValues = driver.findElements(By.xpath("//span[@class='pa-view-field']"));
         Assert.assertEquals(listOfNewValues.get(0).getText(), stringLineNewText);
         Assert.assertEquals(listOfNewValues.get(1).getText(), textLineNewText);
@@ -199,7 +180,6 @@ public class EntityDefaultTest extends BaseTest {
         Assert.assertEquals(listOfNewValues.get(4).getText(), dateLineNew);
         Assert.assertEquals(listOfNewValues.get(5).getText(), dateTimeLineNew);
 
-        //check EmbedD lines new values
         List<WebElement> embedDArrayOfNewValues = driver.findElements(By.xpath("//table/tbody/tr/td"));
         Assert.assertEquals(embedDArrayOfNewValues.get(1).getText(), stringEmbedLineNewText);
         Assert.assertEquals(embedDArrayOfNewValues.get(2).getText(), textEmbedLineNewText);
