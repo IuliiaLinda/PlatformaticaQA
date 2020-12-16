@@ -12,6 +12,8 @@ public class EntityFieldsOpsTest extends BaseTest {
     @Test
     public void newRecord() {
         WebDriver driver = getDriver();
+
+        //driver get
         driver.get("https://ref.eteam.work");
 
         ProjectUtils.login(driver,"user1@tester.com", "ah1QNmgkEO");
