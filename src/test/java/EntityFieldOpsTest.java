@@ -18,6 +18,7 @@ import java.util.List;
 
 public class EntityFieldOpsTest extends BaseTest {
 
+    @Ignore
     @Test
     public void fieldOpsView() {
 
